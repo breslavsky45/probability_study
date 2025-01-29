@@ -1,0 +1,62 @@
+/* Basic reset and base styling (optional) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  padding: 1rem;
+  background: #f4f4f4;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+/* Table styling */
+.collapsible-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  background: #fff;
+}
+
+/* Table header styling */
+.collapsible-table thead tr {
+  background-color: #ddd;
+}
+
+.collapsible-table th {
+  text-align: left;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+}
+
+/* Clickable row styling */
+.clickable-row {
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+.clickable-row:hover {
+  background-color: #ececec;
+}
+
+.clickable-row td {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+}
+
+/* Details row (initially hidden via inline style in HTML) */
+.details-row {
+  display: none; /* Hidden by default */
+}
+
+.details-row td {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  background-color: #fff9e5;
+}

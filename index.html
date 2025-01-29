@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>משפטים ללמידה - מבוא להסתברות וסטטיסטיקה</title>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    /* Base reset (optional) */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Use a common, simple font */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      padding: 10rem;
+      background: #f4f4f4;
+      direction: rtl; /* Ensures the entire page flows right-to-left */
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      text-align: right; /* Align headings to the right */
+    }
+
+    /* Table styling */
+    .collapsible-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      background: #fff;
+      direction: rtl; /* Ensure table direction is also RTL */
+    }
+
+    /* Table header styling */
+    .collapsible-table thead tr {
+      background-color: #ddd;
+    }
+
+    .collapsible-table th {
+      text-align: right; /* Right-aligned text in header cells */
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+    }
+
+    /* Clickable row styling */
+    .clickable-row {
+      cursor: pointer;
+      background-color: #f9f9f9;
+    }
+
+    .clickable-row:hover {
+      background-color: #ececec;
+    }
+
+    .clickable-row td {
+      text-align: right; /* Right-aligned text in regular cells */
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+    }
+
+    /* Details row (initially hidden) */
+    .details-row {
+      display: none; /* Hidden by default */
+    }
+
+    .details-row td {
+      text-align: right;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      background-color: #fff9e5;
+    }
+
+    /* Flex container for images */
+    .image-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem; /* spacing between images */
+      justify-content: flex-start; /* aligns items to the start */
+    }
+
+    /* Make the images responsive within the flex container */
+    .image-row img {
+      flex: 1 1 calc(50% - 1rem); /* Adjust for two images per row */
+      max-width: calc(40% - 1rem); /* Ensures two images per row with gap */
+      min-width: 200px; /* Minimum width for images */
+      height: auto; /* Maintains aspect ratio */
+      object-fit: contain; /* Ensures the entire image is visible */
+      display: block; /* Removes inline spacing */
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 1050px) {
+      .image-row img {
+        flex: 1 1 100%; /* Stacks images vertically on smaller screens */
+        max-width: 100%;
+        min-width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>משפטים שצריך לזכור בעל פה - מבוא להסתברות וסטטיסטיקה</h1>
+
+  <table class="collapsible-table">
+    <thead>
+      <tr>
+        <th>משפט</th>
+        <th>פירוט</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Row 1 -->
+      <tr class="clickable-row" onclick="toggleDetails('details1')">
+        <td><b>א"ש בול, חסם האיחוד</b></td>
+        <td>
+          $$\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B)$$
+          $$\mathbb{P}\left(\bigcup_{n\in\left[m\right]}A_{n}\right)\leq\sum_{n\in\left[m\right]}\mathbb{P}\left(A_{n}\right)$$
+          $$\mathbb{P}\left(\bigcup_{n\in\mathbb{N}}A_{n}\right)\leq\sum_{n\in\mathbb{N}}\mathbb{P}\left(A_{n}\right)$$
+          ההבדל בין השני לשלישי: על סדרה סופית של מאורעות לעומת סדרה אינסופית.
+        </td>
+      </tr>
+      <tr id="details1" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/bol_2.7_proof.png" alt="bol 2.7">
+            <img src="imgs/bol_2.8_proof.png" alt="bol 2.8">
+            <img src="imgs/bol_2.18_proof.png" alt="bol 2.18">
+          </div>
+        </td>
+      </tr>
+
+      <!-- Row 2 -->
+      <tr class="clickable-row" onclick="toggleDetails('details2')">
+        <td><b>רציפות פונקציית הסתברות למאורעות עולים ויורדים</b></td>
+        <td>
+          תזכורת: מאורעות עולים:
+          $$\forall_{i\leq j}A_{i}\subset A_{j}$$
+          כאשר הסדרה עולה:
+          $$\mathbb{P}\left(\bigcup_{n\in\mathbb{N}}A_{n}\right)=\lim_{n\rightarrow\infty}\mathbb{P}\left(A_{n}\right)$$
+          כאשר הסדרה יורדת:
+          $$\mathbb{P}\left(\bigcap_{n\in\mathbb{N}}A_{n}\right)=\lim_{n\rightarrow\infty}\mathbb{P}\left(A_{n}\right)$$
+        </td>
+      </tr>
+      <tr id="details2" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/bol_2.15_proof.png" alt="bol 2.15">
+            <img src="imgs/bol_2.16_proof.png" alt="bol 2.16">
+          </div>
+        </td>
+      </tr>
+
+      <!-- Row 3 -->
+      <tr class="clickable-row" onclick="toggleDetails('details3')">
+        <td><b>חוסר זיכרון של התפלגות גיאומטרית</b></td>
+        <td>
+          יהי \(X\) משתנה מקרי הנתמך על \(\mathbb{N}\) אשר מקיים \(\mathbb{P}(X=1) < 1\). שלושת הבאים שקולים:
+          <ol style="list-style: decimal">
+            $$X\sim Geo$$
+            $$\mathbb{P}\left(X=n\right)=\mathbb{P}\left(X-1=n\mid X>1\right)$$
+            $$\forall_{S\in\mathbb{N}}\mathbb{P}\left(X=n\right)=\mathbb{P}\left(X-s\mid X>s\right)$$
+          </ol>
+        </td>
+      </tr>
+      <tr id="details3" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/geo_4.105.png" alt="Example 3.1">
+            <img src="imgs/geo_4.105_proof.png" alt="Example 3.2" style="width: 30%">
+          </div>
+        </td>
+      </tr>
+
+      <!-- Row 4 -->
+      <tr class="clickable-row" onclick="toggleDetails('details4')">
+        <td><b>אי שוויון מרקוב</b></td>
+        <td>
+          יהי \(X\) משתנה מקרי אי-שלילי (כלומר \(X\stackrel{a.s.}{\geq}0\) בעל תוחלת סופית. אזי לכל \(a>0\) מתקיים:
+          $$\mathbb{P}\left(X\geq a\right)\leq\frac{\mathbb{E}\left(X\right)}{a}$$
+        </td>
+      </tr>
+      <tr id="details4" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/markov_5.36_proof.png" alt="Example 4.1">
+          </div>
+        </td>
+      </tr>
+
+      <!-- Row 5 -->
+      <tr class="clickable-row" onclick="toggleDetails('details5')">
+        <td><b>אי שוויון צ'בישב</b></td>
+        <td>
+          יהי \(X\) משתנה מקרי בעל שונות סופית. אזי לכל \(a>0\) מתקיים:
+          $$\mathbb{P}\left(\left|X-\mathbb{E}\left(X\right)\right|\geq a\right)\leq\frac{Var\left(X\right)}{a^{2}}$$
+        </td>
+      </tr>
+      <tr id="details5" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/chebishev_6.9.png" alt="Example 5.1">
+          </div>
+        </td>
+      </tr>
+
+      <!-- Row 6 -->
+      <tr class="clickable-row" onclick="toggleDetails('details6')">
+        <td><b>תנאי התכנסות לקבוע והחוק החלש של המספרים הגדולים (להוכיח למ"מ בעלי שונות, לצטט באופן כללי)</b></td>
+        <td>
+          <b>טענה 6.19:</b>
+          תהי \(\left(X_{n}\right)_{n\in\mathbb{N}}\) סדרת משתנים מקריים המקיימת עבור \(\mu\in\mathbb{R}\) כי \(\mathbb{E}\left(X\right)\rightarrow\mu\) וכן \(Var\left(X_{n}\right)\rightarrow0\). אזי:
+          $$X_{n}\stackrel{d}{\rightarrow}\mu$$
+          <b>משפט 6.21:</b>
+          יהיו \(\left\{ X_{n}\right\} _{n\in\mathbb{N}}\) משתנים מקריים בלתי-תלויים, שווי התפלגות בעלי תוחלת \(\mu\). אזי:
+          $$\frac{1}{n}\sum_{i=1}^{n}X_{i}\stackrel{d}{\rightarrow}\mu$$
+        </td>
+      </tr>
+      <tr id="details6" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/mu_6.19_proof.png" alt="Example 6.1">
+            <img src="imgs/mu_6.21_proof.png" alt="Example 6.2">
+          </div>
+        </td>
+      </tr>
+
+      <!-- Row 7 -->
+      <tr class="clickable-row" onclick="toggleDetails('details7')">
+        <td><b>אי שוויון צ'רנוף</b></td>
+        <td>
+          יהי \(X\) משתנה מקרי בעל מומנט מעריכי. אזי לכל \(t>0\) עבורו \(M_X (t)\) מוגדרת ולכל \(a \in \mathbb{R}\) מתקיים:
+          $$\mathbb{P}\left(X\geq a\right)\leq M_{X}\left(t\right)e^{-ta}$$
+        </td>
+      </tr>
+      <tr id="details7" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/chernof_7.9.png" alt="Example 7.1">
+          </div>
+        </td>
+      </tr>
+
+      <!-- Row 8 -->
+      <tr class="clickable-row" onclick="toggleDetails('details8')">
+        <td><b>אי שוויון הופדינג (מותר לצטט ולהשתמש בלמה של הופדינג</b></td>
+        <td>
+          יהיו \(\left\{ X_{k}\right\} _{k\in\left[n\right]}\) משתנים מקריים בלתי-תלויים ובעלי תוחלת אפס, אשר מקיימים \(\left|X_{k}\right|\stackrel{a.s.}{\leq}1\) לכל \(k\in\left[n\right]\). אזי לכל \(d>0\) מתקיים:
+          $$\mathbb{P}\left(\sum_{k\in\left[n\right]}X_{k}\geq d\right)\leq\exp\left(\frac{-d^{2}}{2n}\right)$$
+        </td>
+      </tr>
+      <tr id="details8" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/hopding_7.17.png" alt="Example 8.1">
+          </div>
+        </td>
+      </tr>
+
+      <!-- Row 9 -->
+      <tr class="clickable-row" onclick="toggleDetails('details9')">
+        <td><b> הלמה של ניימן פירסון</b></td>
+        <td>
+          ניתן לבחור בין הלמה למבחנים דטרמיניסטיים לבין הלמה למבחנים סטוכסטיים.
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <br><br><br><br>
+  <h1>משפטים שניסוחם יופיע על השאלון ונדרש רק לדעת להוכיח אותם</h1>
+
+  <table class="collapsible-table">
+    <thead>
+      <tr>
+        <th>משפט</th>
+        <th>פירוט</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Row 1 -->
+      <tr class="clickable-row" onclick="toggleDetails('details21')">
+        <td><b>נוסחת מכפלה לאוסף מאורעות אינסופי</b></td>
+        <td>
+          תהי \(\left\{ A_{n}\right\} _{n\in\mathbb{N}}\) סדרת מאורעות בלתי-תלויים אזי:
+          $$\mathbb{P}\left(\bigcap_{n\in\mathbb{N}}A_{n}\right)=\prod_{n=1}^{\infty}\mathbb{P}\left(A_{n}\right)$$
+        </td>
+      </tr>
+      <tr id="details21" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/mult_3.52_proof.png" alt="bol 2.7">
+          </div>
+        </td>
+      </tr>
+
+      <!-- Row 2 -->
+      <tr class="clickable-row" onclick="toggleDetails('details22')">
+        <td><b>שוויון כמעט-תמיד גורר שוויון התפלגויות</b></td>
+        <td>
+          יהיו \(X,Y\) משתנים מקריים על מרחב הסתברות \(\left(\Omega,\mathcal{F},\mathbb{P}\right)\). אם \(X\stackrel{a.s.}{=}Y\) אז \(X\stackrel{d}{=}Y\).
+        </td>
+      </tr>
+      <tr id="details22" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/as_4.28_proof.png" alt="bol 2.15">
+          </div>
+        </td>
+      </tr>
+
+      <!-- Row 3 -->
+      <tr class="clickable-row" onclick="toggleDetails('details23')">
+        <td><b>שוויון התפלגויות נשמר תחת הפעלה פונקציה</b></td>
+        <td>
+          יהיו \(X,Y\) משתנים מקריים בדידים, שווי התפלגויות (לאו דווקא על אותו מרחב הסתברות), ותהי \(f\in\mathcal{F}_{\mathbb{R}\rightarrow\mathbb{R}}\) אזי \(f\left(X\right)\stackrel{d}{=}f\left(Y\right)\).
+        </td>
+      </tr>
+      <tr id="details23" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/func_4.30_proof.png" alt="Example 3.1">
+          </div>
+        </td>
+      </tr>
+
+      <!-- Row 4 -->
+      <tr class="clickable-row" onclick="toggleDetails('details24')">
+        <td><b>סכום מ"מ ברנולי מתפלג בינומית</b></td>
+        <td>
+            יהיו \(X=\left\{ X_{i}\right\} _{i\in\left[n\right]}\) וקטור של משתני ברנולי עם הסתברות הצלחה \(p\), בלתי-תלויים. אזי:
+          $$\sum_{i\in\left[n\right]}X_{i}\sim Bin\left(n,p\right)$$
+        </td>
+      </tr>
+      <tr id="details24" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/bernoulli_sum_4.113_proof.png" alt="Example 4.1">
+          </div>
+        </td>
+      </tr>
+
+      <!-- Row 5 -->
+      <tr class="clickable-row" onclick="toggleDetails('details25')">
+        <td><b>פואסון כגבול בינומי במובן נקודתי</b></td>
+        <td>
+          יהי \( Y \sim \text{Pois}(\lambda) \) עבור \( \lambda \geq 0 \), כמו כן יהיו \( \{ X_{n} \}_{n \in \mathbb{N}} \) משתנים מקריים כך שלכל \( n > \lambda \) מתקיים \( X_{n} \sim \text{Bin}\left(n, \frac{\lambda}{n}\right) \). נראה כי לכל \( k \in \mathbb{N}_{0} \) מתקיים:
+          $$\lim_{n\rightarrow\infty}\mathbb{P}\left(X_{n}=k\right)=\mathbb{P}\left(Y=k\right)$$
+        </td>
+      </tr>
+      <tr id="details25" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/pos_4.124_proof.png" alt="Example 5.1">
+          </div>
+        </td>
+      </tr>
+
+      <!-- Row 6 -->
+      <tr class="clickable-row" onclick="toggleDetails('details26')">
+        <td><b>נוסחת התוחלת השלמה</b></td>
+        <td>
+          תהי \( \mathcal{A} \) חלוקה בת-מנייה של מרחב הסתברות \( \left(\Omega, \mathcal{F}, \mathbb{P}\right) \) ויהי \( X \) משתנה מקרי בעל תוחלת סופית על מרחב זה. אזי:
+          $$\mathbb{E}\left(X\right)=\sum_{A\in\mathcal{A}}\mathbb{E}\left(X1_{A}\right)$$
+          $$\mathbb{E}\left(X\right)=\sum_{\stackrel{A\in\mathcal{A}}{\mathbb{P}\left(A\right)>0}}\mathbb{E}\left(X\mid A\right)\mathbb{P}\left(A\right)$$
+        </td>
+      </tr>
+      <tr id="details26" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/expect_5.25_proof.png" alt="Example 6.1">
+          </div>
+        </td>
+      </tr>
+
+      <!-- Row 7 -->
+      <tr class="clickable-row" onclick="toggleDetails('details27')">
+        <td><b>נוסחת שונות לסכום</b></td>
+        <td>
+          לכל אוסף \(\left(X_{k}\right)_{k\in\left[n\right]}\) של משתנים מקריים מתקיים:
+          $$Var\left(\sum_{k=1}^{n}X_{k}\right)=\sum_{l,k\leq n}Cov\left(X_{k},X_{l}\right)=\sum_{k\leq n}Var\left(X_{k}\right)+2\sum_{k< l\leq N}Cov\left(X_{k},X_{l}\right)$$
+          בכל מקרה בו אגף ימין של המשוואה מוגדר היטב.
+        </td>
+      </tr>
+      <tr id="details27" class="details-row">
+        <td colspan="2">
+          <div class="image-row">
+            <img src="imgs/var_sum_6.34_proof.png" alt="Example 7.1">
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+
+  <script>
+    /**
+     * Toggles visibility of a details row when a clickable row is pressed.
+     * @param {string} rowId - The 'id' of the details row to be toggled.
+     */
+    function toggleDetails(rowId) {
+      const detailsRow = document.getElementById(rowId);
+      if (detailsRow.style.display === "none" || !detailsRow.style.display) {
+        // Show row
+        detailsRow.style.display = "table-row";
+      } else {
+        // Hide row
+        detailsRow.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
