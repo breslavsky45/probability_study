@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>משפטים ללמידה - מבוא להסתברות וסטטיסטיקה</title>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="icon" href="imgs/logo.ico" type="image/x-icon"/>
   <style>
     /* Base reset (optional) */
     * {
@@ -101,6 +102,47 @@
         min-width: 200px;
       }
     }
+
+    /* Modal overlay styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      padding-top: 60px;
+      direction: ltr; /* Ensure modal controls are in left-to-right order */
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80%;
+      transform-origin: center center;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .zoom-controls {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .zoom-controls button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -119,7 +161,7 @@
       <tr class="clickable-row" onclick="toggleDetails('details1')">
         <td><b>א"ש בול, חסם האיחוד</b></td>
         <td>
-          $$\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B)$$
+          $$\mathbb{P}(A \cup B) \leq \mathbb{P}(A) + \mathbb{P}(B)$$
           $$\mathbb{P}\left(\bigcup_{n\in\left[m\right]}A_{n}\right)\leq\sum_{n\in\left[m\right]}\mathbb{P}\left(A_{n}\right)$$
           $$\mathbb{P}\left(\bigcup_{n\in\mathbb{N}}A_{n}\right)\leq\sum_{n\in\mathbb{N}}\mathbb{P}\left(A_{n}\right)$$
           ההבדל בין השני לשלישי: על סדרה סופית של מאורעות לעומת סדרה אינסופית.
@@ -398,21 +440,52 @@
     </tbody>
     </table>
 
+   <!-- Modal for enlarged image -->
+  <div id="imageModal" class="modal">
+    <span class="close" id="modalClose">&times;</span>
+    <div style="text-align: center;">
+      <img class="modal-content" id="modalImage" src="" alt="Enlarged Image">
+    </div>
+  </div>
+
   <script>
-    /**
-     * Toggles visibility of a details row when a clickable row is pressed.
-     * @param {string} rowId - The 'id' of the details row to be toggled.
-     */
+    // Toggle details rows when a clickable row is pressed.
     function toggleDetails(rowId) {
       const detailsRow = document.getElementById(rowId);
       if (detailsRow.style.display === "none" || !detailsRow.style.display) {
-        // Show row
         detailsRow.style.display = "table-row";
       } else {
-        // Hide row
         detailsRow.style.display = "none";
       }
     }
+
+    // Open modal with the clicked image
+    function openModal(img) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      modal.style.display = "block";
+      modalImg.src = img.src;
+    }
+
+    // Attach click event to all images in the image-row to open modal
+    document.querySelectorAll('.image-row img').forEach(function(img) {
+      img.addEventListener('click', function(event) {
+        event.stopPropagation();
+        openModal(this);
+      });
+    });
+
+    // Close modal when clicking on the close button
+    document.getElementById("modalClose").addEventListener("click", function() {
+      document.getElementById("imageModal").style.display = "none";
+    });
+
+    // Close modal when clicking outside of the image
+    document.getElementById("imageModal").addEventListener("click", function(e) {
+      if (e.target === this) {
+        this.style.display = "none";
+      }
+    });
   </script>
 
 </body>
